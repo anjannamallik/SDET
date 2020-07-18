@@ -26,6 +26,8 @@ public void i_launch_the_application() throws Throwable {
 	driver = new ChromeDriver();
 	driver.get(url);
 	Thread.sleep(3000);
+	driver.manage().window().maximize();
+	Thread.sleep(3000);
 }
 
 @Then("^I enter the username \"([^\"]*)\" and password \"([^\"]*)\"$")
@@ -35,8 +37,8 @@ public void i_enter_the_username_and_password(String username, String password) 
 	driver.findElement(By.cssSelector("input[placeholder=Username]")).sendKeys(username);
 	driver.findElement(By.cssSelector("input[placeholder=Pass]")).sendKeys(password);
 	driver.findElement(By.name("submitAuth")).click();
-	driver.manage().window().maximize();
-	Thread.sleep(3000);
+	//driver.manage().window().maximize();
+	//Thread.sleep(3000);
 }
 
 @Given("^I clicked on Adminstration tab$")
@@ -85,6 +87,7 @@ public void i_clicked_Yes_radio_button() throws Throwable {
 public void i_clicked_Add_Category_button() throws Throwable {
     // Write code here that turns the phrase above into concrete actions
 	driver.findElement(By.id("course_category_submit")).click();
+	
 }
 
 //////======================================================Create course
